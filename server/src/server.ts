@@ -3,11 +3,15 @@ import cors from 'cors'
 import dotenv from 'dotenv'
 import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
+import connectDB from './config/db.js'
+import { exampleRouter } from './routes/example.js'
 
 dotenv.config()
 const PORT = process.env.PORT || 3000
 
 const app = express()
+
+connectDB()
 
 app.use(morgan('dev'))
 app.use(express.json())
@@ -22,6 +26,8 @@ app.use(cookieParser())
 app.get('/', (req, res) => {
   res.send('Hello World!')
 })
+
+app.use('/examples', exampleRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)

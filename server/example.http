@@ -1,0 +1,12 @@
+### GET request to fetch all examples
+GET http://localhost:3000/examples HTTP/1.1
+Content-Type: application/json
+
+### POST request to create a new example
+POST http://localhost:3000/examples HTTP/1.1
+Content-Type: application/json
+
+{
+  "title": "Example Title",
+  "description": "Example Description"
+}
