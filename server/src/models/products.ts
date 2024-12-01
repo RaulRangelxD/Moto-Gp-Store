@@ -20,8 +20,8 @@ const ProductSchema: Schema = new mongoose.Schema(
     stock: { type: Number, required: true, min: 0 },
   },
   {
-    timestamps: true, // Registra fechas de creación y actualización
-    versionKey: false, // Desactiva el campo __v
+    timestamps: true,
+    versionKey: false,
   }
 )
 export const ProductModel = mongoose.model<IProduct>('Product', ProductSchema)
