@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import morgan from 'morgan'
 import connectDB from './config/db.js'
 import { exampleRouter } from './routes/example.js'
+import { usersRouter } from './routes/users.js'
 
 dotenv.config()
 const PORT = process.env.PORT || 3000
@@ -28,6 +29,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/examples', exampleRouter)
+app.use('/users', usersRouter)
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
