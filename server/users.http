@@ -1,0 +1,33 @@
+### GET
+GET http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+### GET email
+GET http://localhost:3000/users/email/john.doe@gmail.com HTTP/1.1
+Content-Type: application/json
+
+### POST
+POST http://localhost:3000/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "John Doe",
+	"email": "john.doe@gmail.com",
+	"password": "123456",
+	"role": "admin"
+}
+
+### PATCH
+PATCH http://localhost:3000/users/674ba5477fb9cecfd395288c HTTP/1.1
+Content-Type: application/json
+
+{
+  "username": "John Doe 2",
+  "email": "john.doe@gmail.com",
+	"password": "123456",
+	"role": "admin"
+}
+
+### DELETE
+DELETE http://localhost:3000/users/674ba5477fb9cecfd395288c HTTP/1.1
+Content-Type: application/json
