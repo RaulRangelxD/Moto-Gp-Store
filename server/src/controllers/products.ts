@@ -1,25 +1,38 @@
 import { Request, Response } from 'express'
 import { ProductModel } from '../models/products.js'
+import { CategoryModel } from '../models/category.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 
 export const createProduct = async (req: Request, res: Response) => {
-  const { _id, title, description, price, category, reference, img, stock } = req.body
+  const { _id, name, description, price, reference, img, stock, categoryID } = req.body
 
+  const existingProduct = await ProductModel.findOne({ $or: [{ name }, { reference }] })
+
+  if (existingProduct) {
+    return defaultResponse({ res, status: 400, message: 'Product with this name or reference already exists' })
+  }
+
+  const category = await CategoryModel.findById(categoryID)
+
+  if (!category) {
+    return defaultResponse({ res, status: 400, message: 'Category not found', data: null })
+  }
   const newProduct = new ProductModel({
     _id,
-    title,
+    name,
     description,
     price,
-    category,
     reference,
     img,
     stock,
+    category: category?._id,
   })
+
   try {
     const savedProduct = await newProduct.save()
     defaultResponse({ res, status: 201, message: 'Successfully created product', data: savedProduct })
   } catch (error: any) {
-    defaultResponse({ res, status: 400, message: 'Error creating Product', data: error.message })
+    defaultResponse({ res, status: 400, message: 'Error creating product', data: error.message })
   }
 }
 

@@ -1,27 +1,19 @@
-import mongoose, { Schema, Types } from 'mongoose'
+import mongoose from 'mongoose'
 
-interface IProduct {
-  _id: Types.ObjectId
-  title: string
-  description: string
-  price: number
-  category: string
-  img?: string
-  stock: number
-}
-
-const ProductSchema: Schema = new mongoose.Schema(
+const ProductSchema = new mongoose.Schema(
   {
-    title: { type: String, required: true, trim: true, unique: true },
+    name: { type: String, required: true, trim: true },
     description: { type: String, required: true, maxlength: 1000 },
     price: { type: Number, required: true, min: 0 },
-    reference: { type: String, required: true, unique: true },
+    reference: { type: String, required: true, trim: true },
     img: { type: String },
     stock: { type: Number, required: true, min: 0 },
+    category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
   },
   {
     timestamps: true,
     versionKey: false,
   }
 )
-export const ProductModel = mongoose.model<IProduct>('Product', ProductSchema)
+
+export const ProductModel = mongoose.model('Product', ProductSchema)
