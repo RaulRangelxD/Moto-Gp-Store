@@ -1,4 +1,4 @@
-import mongoose, { Schema } from 'mongoose'
+import mongoose from 'mongoose'
 
 const categorySchema = new mongoose.Schema({
   name: { type: String, required: true, trim: true, set: (value: string) => value.toLowerCase() },
@@ -6,4 +6,4 @@ const categorySchema = new mongoose.Schema({
 
 categorySchema.index({ name: 1 }, { unique: true, collation: { locale: 'en', strength: 2 } })
 
-export const CategoryModel = mongoose.model('Category', categorySchema)
+export const categoryModel = mongoose.model('Category', categorySchema)

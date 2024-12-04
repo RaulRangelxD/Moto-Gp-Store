@@ -1,23 +1,17 @@
 import { Request, Response } from 'express'
-import { ProductModel } from '../models/products.js'
-import { CategoryModel } from '../models/category.js'
+import { productModel } from '../models/products.js'
+import { categoryModel } from '../models/category.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 
 export const createProduct = async (req: Request, res: Response) => {
-  const { _id, name, description, price, reference, img, stock, categoryID } = req.body
+  const { _id, name, description, price, reference, img, stock, categoryId } = req.body
 
-  const existingProduct = await ProductModel.findOne({ $or: [{ name }, { reference }] })
-
-  if (existingProduct) {
-    return defaultResponse({ res, status: 400, message: 'Product with this name or reference already exists' })
-  }
-
-  const category = await CategoryModel.findById(categoryID)
+  const category = await categoryModel.findById(categoryId)
 
   if (!category) {
     return defaultResponse({ res, status: 400, message: 'Category not found', data: null })
   }
-  const newProduct = new ProductModel({
+  const newProduct = new productModel({
     _id,
     name,
     description,
@@ -38,18 +32,18 @@ export const createProduct = async (req: Request, res: Response) => {
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
-    const products = await ProductModel.find()
+    const products = await productModel.find()
     defaultResponse({ res, status: 200, message: 'Products obtained correctly', data: products })
   } catch (error: any) {
     defaultResponse({ res, status: 500, message: 'Error obtaining the products', data: error.message })
   }
 }
 
-export const updateProduct = async (req: Request, res: Response) => {
+export const putUpdateProduct = async (req: Request, res: Response) => {
   const { _id } = req.params
   const update = req.body
   try {
-    const updateProduct = await ProductModel.findOneAndUpdate({ _id }, update, { new: true })
+    const updateProduct = await productModel.findOneAndUpdate({ _id }, update, { new: true })
     if (!updateProduct) {
       return defaultResponse({ res, status: 404, message: 'Product not found to update', data: null })
     }
@@ -63,7 +57,7 @@ export const deleteProducts = async (req: Request, res: Response) => {
   const { _id } = req.params
 
   try {
-    const deletedProduct = await ProductModel.findOneAndDelete({ _id })
+    const deletedProduct = await productModel.findOneAndDelete({ _id })
     if (!deletedProduct) {
       return defaultResponse({ res, status: 404, message: 'This product cannot be deleted as it has not been found', data: null })
     }
