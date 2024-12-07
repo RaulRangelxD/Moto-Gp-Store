@@ -3,7 +3,16 @@ import { productModel } from '../models/products.js'
 import { categoryModel } from '../models/category.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 
-export const createProduct = async (req: Request, res: Response) => {
+export const getProducts = async (req: Request, res: Response) => {
+  try {
+    const products = await productModel.find()
+    defaultResponse({ res, status: 200, message: 'Products obtained correctly', data: products })
+  } catch (error: any) {
+    defaultResponse({ res, status: 500, message: 'Error obtaining the products', data: error.message })
+  }
+}
+
+export const postCreateProduct = async (req: Request, res: Response) => {
   const { _id, name, description, price, reference, img, stock, categoryId } = req.body
 
   const category = await categoryModel.findById(categoryId)
@@ -27,15 +36,6 @@ export const createProduct = async (req: Request, res: Response) => {
     defaultResponse({ res, status: 201, message: 'Successfully created product', data: savedProduct })
   } catch (error: any) {
     defaultResponse({ res, status: 400, message: 'Error creating product', data: error.message })
-  }
-}
-
-export const getProducts = async (req: Request, res: Response) => {
-  try {
-    const products = await productModel.find()
-    defaultResponse({ res, status: 200, message: 'Products obtained correctly', data: products })
-  } catch (error: any) {
-    defaultResponse({ res, status: 500, message: 'Error obtaining the products', data: error.message })
   }
 }
 

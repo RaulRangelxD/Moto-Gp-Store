@@ -1,9 +1,26 @@
+### --> Categories <--
+### GET categories
+GET http://localhost:3000/category HTTP/1.1
+
+
+### Create Category
 POST http://localhost:3000/category HTTP/1.1
 Content-Type: application/json
 
 {
-  "name": "Tecnology"
+  "name": "Smartphone"
 }
 
-###
-GET http://localhost:3000/category
+### GET products by category
+GET http://localhost:3000/category/674e2931a1c1c1bd8664d6ec/category/ HTTP/1.1
+
+### PUT update category to ID
+PUT http://localhost:3000/category/674e2931a1c1c1bd8664d6ec HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "smartphone00"
+}
+
+### DELETE category by ID
+DELETE http://localhost:3000/category/674e28c0a1c1c1bd8664d6dd HTTP/1.1

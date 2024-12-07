@@ -3,16 +3,6 @@ import { productModel } from '../models/products.js'
 import { categoryModel } from '../models/category.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 
-export const postCreateCategory = async (req: Request, res: Response) => {
-  const { name } = req.body
-  try {
-    const newCategory = await categoryModel.create({ name })
-    defaultResponse({ res, status: 201, message: 'Successfully created category', data: newCategory })
-  } catch (error: any) {
-    defaultResponse({ res, status: 500, message: 'Error creating category', data: error.message })
-  }
-}
-
 export const getCategory = async (req: Request, res: Response) => {
   try {
     const categories = await categoryModel.find()
@@ -30,6 +20,16 @@ export const getProductsCategory = async (req: Request, res: Response) => {
   } catch (error: any) {
     defaultResponse({ res, status: 201, message: 'That category was not found', data: error.message })
     res.status(500).json({ success: false, message: 'That category was not found' })
+  }
+}
+
+export const postCreateCategory = async (req: Request, res: Response) => {
+  const { name } = req.body
+  try {
+    const newCategory = await categoryModel.create({ name })
+    defaultResponse({ res, status: 201, message: 'Successfully created category', data: newCategory })
+  } catch (error: any) {
+    defaultResponse({ res, status: 500, message: 'Error creating category', data: error.message })
   }
 }
 

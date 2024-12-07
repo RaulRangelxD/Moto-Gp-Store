@@ -29,29 +29,4 @@ Content-Type: application/json
 DELETE http://localhost:3000/products/674c8ffd05de7279e35ec6e8 HTTP/1.1
 Accept: application/json
 
-### --> Categories <--
-### GET categories
-GET http://localhost:3000/categories HTTP/1.1
 
-
-### Create Category
-POST http://localhost:3000/categories HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "Smartphone"
-}
-
-### GET products by category
-GET http://localhost:3000/categories/674e2931a1c1c1bd8664d6ec/categories/ HTTP/1.1
-
-### PUT update category to ID
-PUT http://localhost:3000/categories/674e2931a1c1c1bd8664d6ec HTTP/1.1
-Content-Type: application/json
-
-{
-  "name": "smartphone00"
-}
-
-### DELETE category by ID
-DELETE http://localhost:3000/categories/674e28c0a1c1c1bd8664d6dd HTTP/1.1
