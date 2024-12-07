@@ -13,7 +13,7 @@ Content-Type: application/json
   "reference": "002",
   "img": "http://example.com/smartphone.jpg",
   "stock": 20,
-  "categoryID": "674e2931a1c1c1bd8664d6ec"
+  "categoryID": "6753ccfcfd3605751ce21eeb"
 }
 
 ### PUT update product to ID

@@ -6,6 +6,10 @@ import morgan from 'morgan'
 import connectDB from './config/db.js'
 import { exampleRouter } from './routes/example.js'
 import { usersRouter } from './routes/users.js'
+import { productsRouter } from './routes/products.js'
+import { categoryRouter } from './routes/category.js'
+import { cartRouter } from './routes/cart.js'
+import { purchaseRouter } from './routes/pucharse.js'
 
 dotenv.config()
 const PORT = process.env.PORT || 3000
@@ -30,7 +34,10 @@ app.get('/', (req, res) => {
 
 app.use('/examples', exampleRouter)
 app.use('/users', usersRouter)
-
+app.use('/products', productsRouter)
+app.use('/category', categoryRouter)
+app.use('/cart', cartRouter)
+app.use('/pucharse', purchaseRouter)
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`)
 })

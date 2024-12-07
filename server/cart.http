@@ -1,0 +1,11 @@
+GET http://localhost:3000/cart/675121724f539e2d5888e43d
+Content-Type: application/json
+
+###
+POST http://localhost:3000/cart/6754c28fbbd7ceaa07f62d26 HTTP/1.1
+Content-Type: application/json
+
+{
+  "id_product": "2346643345adc34321",
+  "quanty": 2
+}

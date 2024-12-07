@@ -1,0 +1,15 @@
+GET http://localhost:3000/pucharse HTTP/1.1
+
+###
+POST http://localhost:3000/pucharse HTTP/1.1
+Content-Type: application/json
+
+{
+  "id_user": "675121724f539e2d5888e43d",
+  "total": 20,
+  "id_cart": "6754c28fbbd7ceaa07f62d26"
+}
+
+###
+
+GET http://localhost:3000/pucharse HTTP/1.1

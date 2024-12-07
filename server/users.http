@@ -18,7 +18,7 @@ Content-Type: application/json
 }
 
 ### PATCH
-PATCH http://localhost:3000/users/674ba5477fb9cecfd395288c HTTP/1.1
+PATCH http://localhost:3000/users/675121724f539e2d5888e43d HTTP/1.1
 Content-Type: application/json
 
 {
