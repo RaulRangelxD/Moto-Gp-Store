@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import { CartModel, CartProductsModel } from '../models/cart.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 import { productModel } from '../models/products.js'
+
 export const getCart = async (
   req: Request<{ id_user: string }>,
   res: Response
@@ -97,30 +98,6 @@ export const postCart = async (
   }
 }
 
-export const DeleteProductCart = async (
-  req: Request<{ id_cart: string }>,
-  res: Response
-) => {
-  try {
-    const deleteProduct = await CartProductsModel.findByIdAndDelete(
-      req.params.id_cart
-    )
-    defaultResponse({
-      res,
-      status: 200,
-      message: 'Delete is successful',
-      data: deleteProduct,
-    })
-  } catch (err: any) {
-    defaultResponse({
-      res,
-      status: 500,
-      message: 'Error deleting product on cart',
-      data: err.message,
-    })
-  }
-}
-
 export const UpdateProductCart = async (
   req: Request<{ id_cart: string; quanty: number }>,
   res: Response
@@ -147,6 +124,30 @@ export const UpdateProductCart = async (
       res,
       status: 500,
       message: 'Error Updating cart',
+      data: err.message,
+    })
+  }
+}
+
+export const DeleteProductCart = async (
+  req: Request<{ id_cart: string }>,
+  res: Response
+) => {
+  try {
+    const deleteProduct = await CartProductsModel.findByIdAndDelete(
+      req.params.id_cart
+    )
+    defaultResponse({
+      res,
+      status: 200,
+      message: 'Delete is successful',
+      data: deleteProduct,
+    })
+  } catch (err: any) {
+    defaultResponse({
+      res,
+      status: 500,
+      message: 'Error deleting product on cart',
       data: err.message,
     })
   }

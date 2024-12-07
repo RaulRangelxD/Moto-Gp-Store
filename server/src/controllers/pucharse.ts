@@ -3,6 +3,63 @@ import { CartModel } from '../models/cart.js'
 import { Request, Response } from 'express'
 import { defaultResponse } from '../utils/defaultRes.js'
 
+export const getPucharse = async (req: Request, res: Response) => {
+  try {
+    const pucharse = await pucharseModel.find()
+    if (!pucharse) {
+      defaultResponse({
+        res,
+        status: 404,
+        message: 'pucharses not found',
+        data: pucharse,
+      })
+    }
+    defaultResponse({
+      res,
+      status: 200,
+      message: 'find pucharses successfully',
+      data: pucharse,
+    })
+  } catch (err: any) {
+    defaultResponse({
+      res,
+      status: 500,
+      message: 'error finding pucharses',
+      data: err.message,
+    })
+  }
+}
+
+export const getPucharseById = async (
+  req: Request<{ id_user: string }>,
+  res: Response
+) => {
+  try {
+    const pucharse = await pucharseModel.find({ id_user: req.params.id_user })
+    if (!pucharse) {
+      defaultResponse({
+        res,
+        status: 404,
+        message: 'pucharses not found',
+        data: null,
+      })
+    }
+    defaultResponse({
+      res,
+      status: 200,
+      message: 'find pucharse by id successfully',
+      data: pucharse,
+    })
+  } catch (err: any) {
+    defaultResponse({
+      res,
+      status: 500,
+      message: 'error finding pucharses',
+      data: err.message,
+    })
+  }
+}
+
 export const postPucharse = async (
   req: Request<{
     id_user: string
@@ -57,63 +114,6 @@ export const postPucharse = async (
       res,
       status: 500,
       message: 'error creating new pucharse',
-      data: err.message,
-    })
-  }
-}
-
-export const getPucharse = async (req: Request, res: Response) => {
-  try {
-    const pucharse = await pucharseModel.find()
-    if (!pucharse) {
-      defaultResponse({
-        res,
-        status: 404,
-        message: 'pucharses not found',
-        data: pucharse,
-      })
-    }
-    defaultResponse({
-      res,
-      status: 200,
-      message: 'find pucharses successfully',
-      data: pucharse,
-    })
-  } catch (err: any) {
-    defaultResponse({
-      res,
-      status: 500,
-      message: 'error finding pucharses',
-      data: err.message,
-    })
-  }
-}
-
-export const getPucharseById = async (
-  req: Request<{ id_user: string }>,
-  res: Response
-) => {
-  try {
-    const pucharse = await pucharseModel.find({ id_user: req.params.id_user })
-    if (!pucharse) {
-      defaultResponse({
-        res,
-        status: 404,
-        message: 'pucharses not found',
-        data: null,
-      })
-    }
-    defaultResponse({
-      res,
-      status: 200,
-      message: 'find pucharse by id successfully',
-      data: pucharse,
-    })
-  } catch (err: any) {
-    defaultResponse({
-      res,
-      status: 500,
-      message: 'error finding pucharses',
       data: err.message,
     })
   }

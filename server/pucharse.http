@@ -9,7 +9,3 @@ Content-Type: application/json
   "total": 20,
   "id_cart": "6754c28fbbd7ceaa07f62d26"
 }
-
-###
-
-GET http://localhost:3000/pucharse HTTP/1.1
