@@ -65,7 +65,7 @@ export const loginUser = async (req: Request, res: Response) => {
 			return defaultResponse({
 				res,
 				status: 401,
-				message: 'User not found',
+				message: 'User not exists',
 				data: null,
 			})
 		}
