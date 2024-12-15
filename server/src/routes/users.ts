@@ -5,6 +5,8 @@ import {
 	postUser,
 	deleteUser,
 	getUserByEmail,
+	loginUser,
+	logoutUser,
 } from '../controllers/users.js'
 
 export const usersRouter = Router()
@@ -18,3 +20,7 @@ usersRouter.patch('/:id', patchUser)
 usersRouter.delete('/:id', deleteUser)
 
 usersRouter.get('/email/:email', getUserByEmail)
+
+usersRouter.post('/login', loginUser)
+
+usersRouter.post('/logout', logoutUser)
