@@ -9,6 +9,6 @@ const userSchema = new mongoose.Schema({
 		enum: ['admin', 'client', 'employee'],
 		required: true,
 	},
-})
+}, {timestamps: true})
 
 export const userModel = mongoose.model('User', userSchema)
