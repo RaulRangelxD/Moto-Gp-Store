@@ -131,7 +131,7 @@ export const logoutUser = async (req: Request, res: Response) => {
 		return defaultResponse({
 			res,
 			status: 500,
-			message: 'Internal server error',
+			message: 'Internal error',
 			data: null,
 		})
 	}
