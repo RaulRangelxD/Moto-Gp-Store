@@ -22,7 +22,7 @@ app.use(morgan('dev'))
 app.use(express.json())
 app.use(
   cors({
-    origin: [`http://localhost:${PORT}`, `http://localhost:3000`],
+    origin: [`http://localhost:${PORT}`, `http://localhost:3000`, 'http://localhost:8081'],
     credentials: true,
   })
 )

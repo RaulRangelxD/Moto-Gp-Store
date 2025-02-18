@@ -3,10 +3,7 @@ import { CartModel, CartProductsModel } from '../models/cart.js'
 import { defaultResponse } from '../utils/defaultRes.js'
 import { productModel } from '../models/products.js'
 
-export const getCart = async (
-  req: Request<{ id_user: string }>,
-  res: Response
-) => {
+export const getCart = async (req: Request<{ id_user: string }>, res: Response) => {
   console.log('id_user:', req.params.id_user)
   try {
     const cart = await CartModel.findOne({ id_user: req.params.id_user })
@@ -98,10 +95,7 @@ export const postCart = async (
   }
 }
 
-export const UpdateProductCart = async (
-  req: Request<{ id_cart: string; quanty: number }>,
-  res: Response
-) => {
+export const UpdateProductCart = async (req: Request<{ id_cart: string; quanty: number }>, res: Response) => {
   try {
     const updateProduct = await CartProductsModel.findByIdAndUpdate(
       req.params.id_cart,
@@ -129,14 +123,9 @@ export const UpdateProductCart = async (
   }
 }
 
-export const DeleteProductCart = async (
-  req: Request<{ id_cart: string }>,
-  res: Response
-) => {
+export const DeleteProductCart = async (req: Request<{ id_cart: string }>, res: Response) => {
   try {
-    const deleteProduct = await CartProductsModel.findByIdAndDelete(
-      req.params.id_cart
-    )
+    const deleteProduct = await CartProductsModel.findByIdAndDelete(req.params.id_cart)
     defaultResponse({
       res,
       status: 200,
