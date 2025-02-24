@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import axios from 'axios'
+import { getAllExamples } from '@/api/example'
 
 export default function HomeScreen() {
   const [data, setData] = useState(null)
@@ -9,9 +10,8 @@ export default function HomeScreen() {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/examples')
-      console.log(response)
-      setData(response.data.data)
+      const response = await getAllExamples()
+      setData(response)
     } catch (error) {
       console.error('Error fetching data:', error)
     } finally {
