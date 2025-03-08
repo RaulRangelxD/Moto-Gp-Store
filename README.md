@@ -1,12 +1,13 @@
-# FerreConnect
-**FerreConnect** es un sistema integral diseñado específicamente para la gestión eficiente de **ventas y operaciones** en **FerreElectricos Ferta**, una empresa líder en la comercialización de productos eléctricos y de ferretería. Este sistema reúne todas las funcionalidades necesarias para **digitalizar y optimizar los procesos del negocio**, brindando una experiencia moderna, ágil y totalmente adaptada a las necesidades de la empresa.
+# Moto GP Store
+
+**Moto GP Store** es una tienda en línea especializada en la venta de **artículos para motocicletas**, ofreciendo una amplia variedad de productos para los amantes del motociclismo. Nuestro objetivo es proporcionar productos de alta calidad y un servicio excepcional a nuestros clientes.
 
 ## Tecnologías utilizadas:
 
-- Backend: Desarrollado con Node.js y Express, ofrece una API robusta y escalable que garantiza un rendimiento óptimo para las operaciones de FerreEléctricos Ferta.
+- **Backend**: Desarrollado con Node.js y Express, garantiza una API robusta y escalable para gestionar pedidos, productos y usuarios de manera eficiente.
 
-- Base de datos: Utiliza MongoDB, una base de datos NoSQL flexible y eficiente, ideal para manejar grandes volúmenes de datos, como las transacciones de ventas en tiempo real.
+- **Base de datos**: Utiliza PostgreSQL, una base de datos relacional confiable y eficiente, ideal para manejar grandes volúmenes de información de productos y transacciones.
 
-- Frontend móvil y web: Construido con React Native y Expo, permite al equipo de FerreEléctricos Ferta gestionar y supervisar el negocio desde dispositivos móviles, proporcionando una interfaz intuitiva y responsiva para empleados y administradores.
+- **Frontend web y móvil**: Construido con React y React Native, permitiendo a los usuarios navegar y comprar productos de manera intuitiva desde cualquier dispositivo.
 
-FerreConnect está diseñado para impulsar la transformación digital de FerreEléctricos Ferta, optimizando sus procesos y fortaleciendo su liderazgo en el sector de productos eléctricos y ferretería."
+Moto GP Store está diseñado para ofrecer una experiencia de compra moderna y optimizada, facilitando el acceso a los mejores productos para motocicletas y garantizando un servicio de calidad a nuestros clientes.
