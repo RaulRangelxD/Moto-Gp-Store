@@ -2,9 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     }
   },
   "extends": "expo/tsconfig.base",
@@ -12,6 +10,9 @@
     "global.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "nativewind-env.d.ts"
+    "nativewind-env.d.ts",
+    "src/app/cart/cart.ts",
+    ".expo/types/**/*.ts",
+    "expo-env.d.ts"
   ]
 }

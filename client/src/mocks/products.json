@@ -1,0 +1,114 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "MacBook Pro 16\"",
+      "descripcion": "Laptop de alto rendimiento con pantalla Retina, procesador M1 Pro y 16 GB de RAM.",
+      "price": 2499.99,
+      "stock": 50,
+      "rating": 4.8,
+      "brand": "Apple",
+      "category": "Laptops",
+      "image": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 2,
+      "title": "iPhone 13 Pro",
+      "descripcion": "Smartphone con pantalla Super Retina XDR, triple cámara y 128 GB de almacenamiento.",
+      "price": 999.99,
+      "stock": 120,
+      "rating": 4.7,
+      "brand": "Apple",
+      "category": "Smartphones",
+      "image": "https://images.unsplash.com/photo-1690705229380-a32a8eb5017d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "id": 3,
+      "title": "Samsung Galaxy S21 Ultra",
+      "descripcion": "Teléfono inteligente con pantalla Dynamic AMOLED, cámara de 108 MP y 256 GB de almacenamiento.",
+      "price": 1199.99,
+      "stock": 80,
+      "rating": 4.6,
+      "brand": "Samsung",
+      "category": "Smartphones",
+      "image": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 4,
+      "title": "Dell XPS 15",
+      "descripcion": "Laptop con pantalla InfinityEdge, procesador Intel Core i7 y 32 GB de RAM.",
+      "price": 1999.99,
+      "stock": 30,
+      "rating": 4.5,
+      "brand": "Dell",
+      "category": "Laptops",
+      "image": "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 5,
+      "title": "Sony WH-1000XM4",
+      "descripcion": "Auriculares inalámbricos con cancelación de ruido y hasta 30 horas de duración de batería.",
+      "price": 349.99,
+      "stock": 200,
+      "rating": 4.8,
+      "brand": "Sony",
+      "category": "Audio",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 6,
+      "title": "Logitech MX Master 3",
+      "descripcion": "Ratón inalámbrico ergonómico con seguimiento preciso y carga rápida.",
+      "price": 99.99,
+      "stock": 150,
+      "rating": 4.7,
+      "brand": "Logitech",
+      "category": "Accesorios",
+      "image": "https://images.unsplash.com/photo-1605773527852-c546a8584ea3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 7,
+      "title": "Asus ROG Zephyrus G14",
+      "descripcion": "Laptop gaming con pantalla 120Hz, procesador AMD Ryzen 9 y GPU NVIDIA RTX 3060.",
+      "price": 1799.99,
+      "stock": 25,
+      "rating": 4.6,
+      "brand": "Asus",
+      "category": "Laptops",
+      "image": "https://www.notebookcheck.net/fileadmin/_processed_/5/d/csm_Asus-Rog-Zephyrus-G16-price-has-been-discounted-to-new-record-low_b3e53aa95e.jpg"
+    },
+    {
+      "id": 8,
+      "title": "Google Pixel 6 Pro",
+      "descripcion": "Smartphone con cámara de 50 MP, pantalla OLED y 128 GB de almacenamiento.",
+      "price": 899.99,
+      "stock": 90,
+      "rating": 4.5,
+      "brand": "Google",
+      "category": "Smartphones",
+      "image": "https://m.media-amazon.com/images/I/71ee+5V4ZRL._AC_SY300_SX300_.jpg"
+    },
+    {
+      "id": 9,
+      "title": "HP Spectre x360",
+      "descripcion": "Laptop convertible con pantalla táctil, procesador Intel Core i7 y 16 GB de RAM.",
+      "price": 1499.99,
+      "stock": 40,
+      "rating": 4.4,
+      "brand": "HP",
+      "category": "Laptops",
+      "image": "https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    },
+    {
+      "id": 10,
+      "title": "Bose QuietComfort 45",
+      "descripcion": "Auriculares con cancelación de ruido y sonido equilibrado para una experiencia auditiva premium.",
+      "price": 329.99,
+      "stock": 100,
+      "rating": 4.7,
+      "brand": "Bose",
+      "category": "Audio",
+      "image": "https://images.unsplash.com/photo-1618366712010-f4ae9c647dcb?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+    }
+  ]
+}
