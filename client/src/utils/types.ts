@@ -13,4 +13,5 @@ export type RootStackParamList = {
   Drawer: undefined
   Cart: undefined
   DeividZorra: undefined
+  Home: undefined
 }

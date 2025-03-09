@@ -3,7 +3,17 @@ import { Image, View, Pressable } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { DrawerNavigationProp } from '@react-navigation/drawer'
 import { StackNavigationProp } from '@react-navigation/stack'
-import { EnvelopeIcon, HomeIcon, ShoppingBagIcon, TagsIcon, UserIcon, UserPlusIcon, SingOutIcon, NavIcon, ChevronLeftIcon } from '@/components/Icons'
+import {
+  EnvelopeIcon,
+  HomeIcon,
+  ShoppingBagIcon,
+  TagsIcon,
+  UserIcon,
+  UserPlusIcon,
+  SingOutIcon,
+  NavIcon,
+  ChevronLeftIcon,
+} from '@/components/Icons'
 import { RootStackParamList } from '@/utils/types'
 
 // Navbar for Drawer Screens
@@ -11,11 +21,14 @@ export const DrawerNavigationHeader = () => {
   const navigation = useNavigation<DrawerNavigationProp<RootStackParamList>>()
 
   return (
-    <View className='flex flex-row justify-center items-center w-full p-2 bg-black'>
-      <Pressable onPress={() => navigation.openDrawer()} style={{ marginRight: 10 }}>
+    <View className="flex flex-row justify-center items-center w-full p-2 bg-black">
+      <Pressable
+        onPress={() => navigation.openDrawer()}
+        style={{ marginRight: 10 }}
+      >
         <NavIcon size={24} />
       </Pressable>
-      <View className='mx-auto'>
+      <View className="mx-auto">
         <Header />
       </View>
       <View>
@@ -30,11 +43,14 @@ export const StackNavigationHeader = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
 
   return (
-    <View className='flex flex-row justify-center items-center w-full p-2 bg-black'>
-      <Pressable onPress={() => navigation.goBack()} style={{ marginRight: 10 }}>
+    <View className="flex flex-row justify-center items-center w-full p-2 bg-black">
+      <Pressable
+        onPress={() => navigation.goBack()}
+        style={{ marginRight: 10 }}
+      >
         <ChevronLeftIcon size={24} />
       </Pressable>
-      <View className='mx-auto'>
+      <View className="mx-auto">
         <Header />
       </View>
       <View>
@@ -47,7 +63,10 @@ export const StackNavigationHeader = () => {
 // Common Header Component
 const Header = () => (
   <View>
-    <Image source={require('@/assets/logo.webp')} style={{ width: 100, height: 40 }} />
+    <Image
+      source={require('@/assets/logo.webp')}
+      style={{ width: 100, height: 40 }}
+    />
   </View>
 )
 
