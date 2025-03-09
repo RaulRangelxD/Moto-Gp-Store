@@ -21,22 +21,8 @@ import CartScreen from '@/app/cart/cart'
 
 import { EnvelopeIcon, HomeIcon, ShoppingBagIcon, TagsIcon, UserIcon, UserPlusIcon, SingOutIcon, NavIcon, ChevronLeftIcon } from '@/components/Icons'
 import { DrawerNavigationHeader, StackNavigationHeader } from '@/components/Navbar'
-
-type RootDrawerParamList = {
-  Home: undefined
-  Login: undefined
-  Logout: undefined
-  Register: undefined
-  Profile: undefined
-  Productos: undefined
-  Categorias: undefined
-  Contacto: undefined
-}
-
-type RootStackParamList = {
-  Drawer: undefined
-  Cart: undefined
-}
+import { DeividZorraPage } from './deividzorra'
+import { RootDrawerParamList, RootStackParamList } from '@/utils/types'
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>()
 const Stack = createStackNavigator<RootStackParamList>()
@@ -53,6 +39,7 @@ export default function Layout() {
           }}
         />
         <Stack.Screen name='Cart' component={CartScreen} options={{ headerShown: true, header: () => <StackNavigationHeader /> }} />
+        <Stack.Screen name='DeividZorra' component={DeividZorraPage} options={{ headerShown: true, header: () => <StackNavigationHeader /> }} />
       </Stack.Navigator>
     </GestureHandlerRootView>
   )

@@ -4,22 +4,7 @@ import { useNavigation } from '@react-navigation/native'
 import { DrawerNavigationProp } from '@react-navigation/drawer'
 import { StackNavigationProp } from '@react-navigation/stack'
 import { EnvelopeIcon, HomeIcon, ShoppingBagIcon, TagsIcon, UserIcon, UserPlusIcon, SingOutIcon, NavIcon, ChevronLeftIcon } from '@/components/Icons'
-
-type RootDrawerParamList = {
-  Home: undefined
-  Login: undefined
-  Logout: undefined
-  Register: undefined
-  Profile: undefined
-  Productos: undefined
-  Categorias: undefined
-  Contacto: undefined
-}
-
-type RootStackParamList = {
-  Drawer: undefined
-  Cart: undefined
-}
+import { RootStackParamList } from '@/utils/types'
 
 // Navbar for Drawer Screens
 export const DrawerNavigationHeader = () => {
