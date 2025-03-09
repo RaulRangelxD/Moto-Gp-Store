@@ -26,15 +26,15 @@ export default function HomeScreen() {
   return (
     <ScrollView>
       <View className='flex flex-col items-center'>
-        <Text>Home</Text>
+        <Text className='text-default-dark'>Home</Text>
         {loading ? (
           <Text>Loading...</Text>
         ) : data ? (
           <View className='flex flex-col gap-2'>
             {data.map((item, index) => (
               <View key={index} className='p-2 bg-neutral-300 rounded'>
-                <Text className='text-black'>{item.title}</Text>
-                <Text className='text-black'>{item.description}</Text>
+                <Text className='text-default-dark'>{item.title}</Text>
+                <Text className='text-default-dark'>{item.description}</Text>
               </View>
             ))}
           </View>
