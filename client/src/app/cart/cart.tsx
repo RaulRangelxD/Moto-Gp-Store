@@ -4,25 +4,17 @@ import { CardProductsInCart } from '../../components/cart/CartCard'
 import { products } from '../../mocks/products.json'
 
 export default function CartScreen() {
-  // const [price, setPrice] = useState()
-
   return (
-    <View className="flex-1 flex-row ">
-      <View className="w-3/4 flex-1 mt-6 mr-4">
-        <ScrollView>
-          <FlatList
-            data={products}
-            keyExtractor={(item) => item.id.toString()}
-            renderItem={({ item }) => (
-              <View className="mb-2 w-full">
-                <CardProductsInCart Product={item} />
-              </View>
-            )}
-          />
-        </ScrollView>
-      </View>
+    <View className="flex-1 md:flex-row justify-center items-center md:items-baseline z-0 ">
+      <ScrollView className="flex-1 w-full mt-6">
+        {products.map((item) => (
+          <View key={item.id} className="mb-4 w-full h-full">
+            <CardProductsInCart Product={item} />
+          </View>
+        ))}
+      </ScrollView>
 
-      <View className="w-1/4 justify-center items-center border-2 border-black m-4">
+      <View className="sticky bottom-0 bg-white/95 w-full  md:top-0 md:w-1/4 justify-center items-center m-4 h-48 z-10 shadow-transparent drop-shadow-2xl">
         <Pressable className=" py-4 px-6 rounded-lg">
           <Text className="text-black font-bold text-center">Comprar</Text>
         </Pressable>

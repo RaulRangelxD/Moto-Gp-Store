@@ -18,6 +18,7 @@ import CategoriesScreen from '@/app/products/Categories'
 import ProductsScreen from '@/app/products/Products'
 import ContactScreen from '@/app/contact/Contact'
 import CartScreen from '@/app/cart/cart'
+import BuyScreen from '@/app/buy/buy'
 
 import {
   EnvelopeIcon,
@@ -27,13 +28,12 @@ import {
   UserIcon,
   UserPlusIcon,
   SingOutIcon,
-  NavIcon,
-  ChevronLeftIcon,
 } from '@/components/Icons'
 import {
   DrawerNavigationHeader,
   StackNavigationHeader,
 } from '@/components/Navbar'
+import { DeividZorraPage } from './deividzorra'
 import { RootDrawerParamList, RootStackParamList } from '@/utils/types'
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>()
@@ -59,8 +59,17 @@ export default function Layout() {
           }}
         />
         <Stack.Screen
-          name="Home"
-          component={HomeScreen}
+          name="DeividZorra"
+          component={DeividZorraPage}
+          options={{
+            headerShown: true,
+            header: () => <StackNavigationHeader />,
+          }}
+        />
+
+        <Stack.Screen
+          name="Buy"
+          component={BuyScreen}
           options={{
             headerShown: true,
             header: () => <StackNavigationHeader />,
@@ -88,19 +97,25 @@ function DrawerNavigator() {
       <Drawer.Screen
         name="Home"
         component={HomeScreen}
-        options={{ drawerIcon: (props) => <HomeIcon {...props} /> }}
+        options={{
+          drawerIcon: (props) => <HomeIcon className="text-primary" />,
+        }}
       />
       {!auth ? (
         <>
           <Drawer.Screen
             name="Login"
             component={LoginScreen}
-            options={{ drawerIcon: (props) => <UserIcon {...props} /> }}
+            options={{
+              drawerIcon: (props) => <UserIcon className="text-primary" />,
+            }}
           />
           <Drawer.Screen
             name="Register"
             component={RegisterScreen}
-            options={{ drawerIcon: (props) => <UserPlusIcon {...props} /> }}
+            options={{
+              drawerIcon: (props) => <UserPlusIcon className="text-primary" />,
+            }}
           />
         </>
       ) : (
@@ -108,29 +123,39 @@ function DrawerNavigator() {
           <Drawer.Screen
             name="Profile"
             component={ProfileScreen}
-            options={{ drawerIcon: (props) => <UserIcon {...props} /> }}
+            options={{
+              drawerIcon: (props) => <UserIcon className="text-primary" />,
+            }}
           />
           <Drawer.Screen
             name="Logout"
             component={LogoutScreen}
-            options={{ drawerIcon: (props) => <SingOutIcon {...props} /> }}
+            options={{
+              drawerIcon: (props) => <SingOutIcon className="text-primary" />,
+            }}
           />
         </>
       )}
       <Drawer.Screen
         name="Productos"
         component={ProductsScreen}
-        options={{ drawerIcon: (props) => <ShoppingBagIcon {...props} /> }}
+        options={{
+          drawerIcon: (props) => <ShoppingBagIcon className="text-primary" />,
+        }}
       />
       <Drawer.Screen
         name="Categorias"
         component={CategoriesScreen}
-        options={{ drawerIcon: (props) => <TagsIcon {...props} /> }}
+        options={{
+          drawerIcon: (props) => <TagsIcon className="text-primary" />,
+        }}
       />
       <Drawer.Screen
         name="Contacto"
         component={ContactScreen}
-        options={{ drawerIcon: (props) => <EnvelopeIcon {...props} /> }}
+        options={{
+          drawerIcon: (props) => <EnvelopeIcon className="text-primary" />,
+        }}
       />
     </Drawer.Navigator>
   )

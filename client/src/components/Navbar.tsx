@@ -13,6 +13,7 @@ import {
   SingOutIcon,
   NavIcon,
   ChevronLeftIcon,
+  ShoppingCartIcon,
 } from '@/components/Icons'
 import { RootStackParamList } from '@/utils/types'
 
@@ -21,12 +22,12 @@ export const DrawerNavigationHeader = () => {
   const navigation = useNavigation<DrawerNavigationProp<RootStackParamList>>()
 
   return (
-    <View className="flex flex-row justify-center items-center w-full p-2 bg-black">
+    <View className="flex flex-row justify-center items-center w-full p-2 bg-default-dark">
       <Pressable
         onPress={() => navigation.openDrawer()}
         style={{ marginRight: 10 }}
       >
-        <NavIcon size={24} />
+        <NavIcon className="text-primary" />
       </Pressable>
       <View className="mx-auto">
         <Header />
@@ -43,12 +44,12 @@ export const StackNavigationHeader = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>()
 
   return (
-    <View className="flex flex-row justify-center items-center w-full p-2 bg-black">
+    <View className="flex flex-row justify-center items-center w-full p-2 bg-default-dark">
       <Pressable
         onPress={() => navigation.goBack()}
         style={{ marginRight: 10 }}
       >
-        <ChevronLeftIcon size={24} />
+        <ChevronLeftIcon className="text-primary" />
       </Pressable>
       <View className="mx-auto">
         <Header />
@@ -77,7 +78,7 @@ const RightHeader = () => {
   return (
     <View>
       <Pressable onPress={() => navigation.navigate('Cart')}>
-        <ShoppingBagIcon />
+        <ShoppingCartIcon className="text-primary" />
       </Pressable>
     </View>
   )
