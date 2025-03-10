@@ -72,3 +72,7 @@ export const ChevronLeftIcon = ({ className }: IconType) => {
     <FontAwesome name="chevron-left" size={24} className={`${className}`} />
   )
 }
+
+export const ChevronRightIcon = ({ className }: IconType) => {
+  return <FontAwesome name='chevron-right' size={24} className={`${className}`} />
+}
