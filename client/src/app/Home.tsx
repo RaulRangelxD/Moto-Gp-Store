@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
-import axios from 'axios'
 import { getAllExamples } from '@/api/example'
+import CarouselExample from '@/components/CarouselSlider'
 
 export default function HomeScreen() {
   const [data, setData] = useState(null)
@@ -27,6 +27,7 @@ export default function HomeScreen() {
     <ScrollView>
       <View className='flex flex-col items-center'>
         <Text className='text-default-dark'>Home</Text>
+        <CarouselExample />
         {loading ? (
           <Text>Loading...</Text>
         ) : data ? (

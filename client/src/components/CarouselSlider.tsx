@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import { View, Text, Image, Dimensions } from 'react-native'
-import Carousel from 'react-native-reanimated-carousel'
+import React, { useRef } from 'react'
+import { View, Image, TouchableOpacity, Text } from 'react-native'
+import { useSharedValue } from 'react-native-reanimated'
+import Carousel, { ICarouselInstance, Pagination } from 'react-native-reanimated-carousel'
+import { ChevronLeftIcon, ChevronRightIcon } from '@/components/Icons'
 
 const images = [
   require('@/assets/placeholder.webp'),
@@ -11,33 +13,54 @@ const images = [
 ]
 
 const CarouselExample = () => {
-  const [imageDimensions, setImageDimensions] = useState({ width: 500, height: 350 }) // Tamaño por defecto
-  const [containerDimensions, setContainerDimensions] = useState({ width: 500, height: 350 })
+  const ref = useRef<ICarouselInstance>(null)
+  const progress = useSharedValue<number>(0)
 
-  const handleContainerLayout = (event) => {
-    const { width, height } = event.nativeEvent.layout // Obtener las dimensiones del contenedor
-    setContainerDimensions({ width, height })
+  const goToPrev = () => {
+    ref.current?.scrollTo({ count: -1, animated: true })
+  }
+
+  const goToNext = () => {
+    ref.current?.scrollTo({ count: 1, animated: true })
   }
 
   return (
-    <View className='flex-1 justify-center items-center'>
+    <View className='relative rounded'>
       <Carousel
-        loop
-        width={containerDimensions.width} // Usar el tamaño del contenedor
-        height={containerDimensions.height}
-        autoPlay={true}
-        autoPlayInterval={3000} // Cambia de imagen cada 3 segundos
+        ref={ref}
+        width={496}
+        height={335}
         data={images}
-        scrollAnimationDuration={1000}
+        onProgressChange={progress}
+        scrollAnimationDuration={500}
+        autoPlay={true}
+        autoPlayInterval={3000}
         renderItem={({ item }) => (
-          <View
-            className='w-full h-full bg-blue-300 justify-center items-center'
-            onLayout={handleContainerLayout} // Obtener las dimensiones del contenedor
-          >
-            {/* Mostrar el índice encima de la imagen */}
-            <Image source={item} className='w-full h-full' resizeMode='contain' />
+          <View className='w-full h-full justify-center items-center border-2 border-default-dark overflow-hidden rounded'>
+            <Image source={item} resizeMode='contain' className='w-full h-full' />
           </View>
         )}
+      />
+
+      <TouchableOpacity onPress={goToPrev} className='absolute flex justify-center left-0 inset-y-0 p-2 rounded'>
+        <ChevronLeftIcon className='text-default-dark' />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={goToNext} className='absolute flex justify-center right-0 inset-y-0 p-2 rounded'>
+        <ChevronRightIcon className='text-default-dark' />
+      </TouchableOpacity>
+
+      <Pagination.Basic
+        progress={progress}
+        data={images}
+        dotStyle={{
+          backgroundColor: 'rgba(255,255,255,0.8)',
+          width: 10,
+          height: 10,
+          borderRadius: 50,
+        }}
+        containerStyle={{ flexDirection: 'row', marginTop: 10 }}
+        onPress={(index) => ref.current?.scrollTo({ count: index - progress.value, animated: true })}
       />
     </View>
   )
